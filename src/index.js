@@ -8,8 +8,8 @@ const app = require('./app.js');
 const mongoose = require('mongoose');
 
 // Setting the port number
-// const port = 3000;
-const port = process.env.PORT || 3000;
+const port = 3000;
+// const port = process.env.PORT || 3000;
 
 //Configuring env file
 require("dotenv").config(); 
@@ -19,9 +19,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 
 // Connect to the MongoDB database
-// const DATABASE_URL = "mongodb://127.0.0.1:27017/subscribers";
+const DATABASE_URL = "mongodb://127.0.0.1:27017/subscribers";
 
-const DATABASE_URL = process.env.DATABASE_URI;
+// const DATABASE_URL = process.env.DATABASE_URI;
 
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 

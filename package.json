@@ -1,7 +1,7 @@
 {
   "name": "node-server-testing",
   "version": "1.0.0",
-  "description": "",
+  "description": "RESTful API to get YouTube subscribers information.",
   "main": "index.js",
   "scripts": {
     "test": "mocha 'test-case/*.js' --reporter mochawesome --recursive  --timeout 60000 --exit",
