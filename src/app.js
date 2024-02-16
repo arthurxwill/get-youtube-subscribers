@@ -2,18 +2,22 @@
 const express = require('express');
 const path = require("path");
 const Subscriber = require('./models/subscribers');
+const {cwd} = require('process');
 
 // Creating an instance of the express application
 const app = express();
 
 // Your code goes here
 // Serve static files from the "public" directory
-app.use(express.static("public"));
+// app.use(express.static("public"));
+
+app.use(express.static(path.join(cwd(),'public')));
 
 // Route to serve the "index.html" file
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/index.html"));
-});
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname, "/index.html"));
+// });
+
 
 // Route to get all subscribers
 app.get("/subscribers", async (req, res) => {

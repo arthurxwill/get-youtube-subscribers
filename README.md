@@ -10,7 +10,7 @@
 ## Table of Contents
 
 - [Introduction ](#introduction)
-- [Tech Tower ](#tech-tower)
+- [Tech Stack ](#tech-stack)
 - [Features ](#features)
 - [Prerequisites ](#prerequisites)
 - [Installation & Run](#installation-&-run)
@@ -26,7 +26,7 @@ Introducing Get YouTube Subscribers, an app built with Node.js and Express.js, l
 
 <!-- ![Get Youtube Subs](https://github.com -->
 
-## Tech Tower
+## Tech Stack
 The Get-Youtube-Subscriber app is developed using the following technologies:
 
 - **Node.js:** A tool that runs JavaScript code on the server-side.
