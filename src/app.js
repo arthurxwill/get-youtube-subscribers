@@ -4,14 +4,45 @@ const path = require("path");
 const Subscriber = require('./models/subscribers');
 const {cwd} = require('process');
 
-// Creating an instance of the express application
+require("dotenv").config(); 
+// Importing the mongoose module
+const mongoose = require('mongoose');
 const app = express();
+
+// Setting the port number
+// const port = 3000;
+const port = process.env.PORT || 3000;
+
+//Configuring env file
+
+// Middleware to parse JSON bodies and URL-encoded bodies
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(cwd(),'public')));
+
+
+// Connect to the MongoDB database
+// const DATABASE_URL = "mongodb://127.0.0.1:27017/subscribers";
+
+const DATABASE_URL = process.env.DATABASE_URI;
+
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Get the default connection
+const db = mongoose.connection;
+
+// Event listener for database connection errors
+db.on('error', (err) => console.log(err));
+
+// Event listener for successful database connection
+db.once('open', () => console.log('connected to database'))
+
+// Creating an instance of the express application
 
 // Your code goes here
 // Serve static files from the "public" directory
 // app.use(express.static("public"));
 
-app.use(express.static(path.join(cwd(),'public')));
 
 // Route to serve the "index.html" file
 // app.get("/", (req, res) => {
